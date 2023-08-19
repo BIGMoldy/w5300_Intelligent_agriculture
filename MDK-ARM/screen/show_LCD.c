@@ -37,27 +37,27 @@ void English_Font_test(void)
 	
 	Gui_StrCenter(0,2,WHITE,BLUE,"INTELLIGEN AGRICULTURE",16,0);
 	Gui_StrCenter(0,lcddev.height-18,WHITE,BLUE,"http://www.wiznet.com",16,0);
-	Show_Str(10,30,BLUE,YELLOW,"SH:",12,0);
-	Show_Str(80,30,BLUE,YELLOW,"Val1:",12,0);
-	Show_Str(110,30,RED,BLUE,"-",16,0);
-	Show_Str(165,30,RED,BLUE,"+",16,0);
-	Show_Str(180,30,BLUE,YELLOW,"fan1:",12,0);
+	Show_Str(10,30,BLUE,YELLOW,"soilHumidity:",12,0);
+	Show_Str(80,50,BLUE,YELLOW,"Val1:",12,0);
+	Show_Str(110,50,RED,BLUE,"-",16,0);
+	Show_Str(165,50,RED,BLUE,"+",16,0);
+	Show_Str(180,50,BLUE,YELLOW,"fan1:",12,0);
 
 	
-	Show_Str(10,80,BLUE,YELLOW,"H:",12,0);
-	Show_Str(80,80,BLUE,YELLOW,"Val2:",12,0);
-	Show_Str(110,80,RED,BLUE,"-",16,0);
-	Show_Str(165,80,RED,BLUE,"+",16,0);
-	Show_Str(180,80,BLUE,YELLOW,"fan2:",12,0);
+	Show_Str(10,80,BLUE,YELLOW,"Humidity:",12,0);
+	Show_Str(80,100,BLUE,YELLOW,"Val2:",12,0);
+	Show_Str(110,100,RED,BLUE,"-",16,0);
+	Show_Str(165,100,RED,BLUE,"+",16,0);
+	Show_Str(180,100,BLUE,YELLOW,"fan2:",12,0);
 
 	
-	Show_Str(10,130,BLUE,YELLOW,"T:",12,0);
-	Show_Str(80,130,BLUE,YELLOW,"Val3:",12,0);
-	Show_Str(110,130,RED,BLUE,"-",16,0);
-	Show_Str(165,130,RED,BLUE,"+",16,0);
-	Show_Str(180,130,BLUE,YELLOW,"fan3:",12,0);
+	Show_Str(10,130,BLUE,YELLOW,"temperature:",12,0);
+	Show_Str(80,150,BLUE,YELLOW,"Val3:",12,0);
+	Show_Str(110,150,RED,BLUE,"-",16,0);
+	Show_Str(165,150,RED,BLUE,"+",16,0);
+	Show_Str(180,150,BLUE,YELLOW,"fan3:",12,0);
 	
-	Show_Str(10,180,BLUE,YELLOW,"L:",16,0);
+	Show_Str(10,180,BLUE,YELLOW,"LightLux:",16,0);
 	
 	
 }
@@ -124,49 +124,49 @@ void Touch_Test(void)
 		}
 		
 		English_Font_test();
-		LCD_ShowNum(40,130,temperature,3,16);
-		LCD_ShowNum(40,30,yl69_humidity,3,16);
-		LCD_ShowNum(40,80,humidity,3,16);
-		LCD_ShowNum(120,30,module.SH_val,3,16);
-		LCD_ShowNum(120,80,module.h_val,3,16);
-		LCD_ShowNum(120,130,module.temp_val,3,16);
-		LCD_ShowNum(40,180,g5516_LightLux,4,16);
+		LCD_ShowNum(100,130,temperature,3,16);
+		LCD_ShowNum(100,30,yl69_humidity,3,16);
+		LCD_ShowNum(100,80,humidity,3,16);
+		LCD_ShowNum(120,50,module.SH_val,3,16);
+		LCD_ShowNum(120,100,module.h_val,3,16);
+		LCD_ShowNum(120,150,module.temp_val,3,16);
+		LCD_ShowNum(100,180,g5516_LightLux,4,16);
 		Show_Str(30,250,BLUE,YELLOW,"RES",16,1);
 		Show_Str(150,250,BLUE,YELLOW,"SAVE",16,1);
 		
 			if(0<yl69_humidity&&yl69_humidity<module.SH_val)
 			{
-				LCD_ShowNum(210,30,1,1,16);
+				LCD_ShowNum(210,50,1,1,16);
 				Fan1_Relay_Open();
 				
 
 			}
 			else
 			{
-			  LCD_ShowNum(210,30,0,1,16);
+			  LCD_ShowNum(210,50,0,1,16);
 				Fan1_Relay_Close();
 				
 			}			
 			if(0<humidity&&humidity<module.h_val)
 			{
-			 	LCD_ShowNum(210,80,1,1,16);
+			 	LCD_ShowNum(210,100,1,1,16);
 				Fan2_Relay_Open();
 				
 			}
 			else
 			{
-			 	LCD_ShowNum(210,80,0,1,16);
+			 	LCD_ShowNum(210,100,0,1,16);
 				Fan2_Relay_Close();
 			}								
 			
 			if(0<temperature&&temperature>module.temp_val)
 			{
-			  LCD_ShowNum(210,130,1,1,16);
+			  LCD_ShowNum(210,150,1,1,16);
 				Fan3_Relay_Open();
 			}
 			else
 			{
-			  LCD_ShowNum(210 ,130,0,1,16);
+			  LCD_ShowNum(210 ,150,0,1,16);
 				Fan3_Relay_Close();
 			}		
 			
@@ -187,50 +187,50 @@ void Touch_Test(void)
 		
 		if(tp_dev.sta&TP_PRES_DOWN)			
 		{	
-				if(150<tp_dev.x&&tp_dev.x<210&&0<tp_dev.y&&tp_dev.y<40)
+				if(150<tp_dev.x&&tp_dev.x<210&&0<tp_dev.y&&tp_dev.y<50)
 				{									
 					module.SH_val=module.SH_val+1;					
 					SH_val=module.SH_val;
-					LCD_ShowNum(120,30,module.SH_val,3,16);
+					LCD_ShowNum(120,50,module.SH_val,3,16);
 					HAL_Delay(500);
 				}
 				
-        if(60<tp_dev.x&&tp_dev.x<120&&0<tp_dev.y&&tp_dev.y<40)
+        if(60<tp_dev.x&&tp_dev.x<120&&0<tp_dev.y&&tp_dev.y<50)
 				{				
 					module.SH_val=module.SH_val-1;				
 					SH_val=module.SH_val;
-					LCD_ShowNum(120,30,module.SH_val,3,16);
+					LCD_ShowNum(120,50,module.SH_val,3,16);
 						HAL_Delay(500);
 				}
 								
-				if(150<tp_dev.x&&tp_dev.x<210&&50<tp_dev.y&&tp_dev.y<90)
+				if(150<tp_dev.x&&tp_dev.x<210&&60<tp_dev.y&&tp_dev.y<110)
 				{									
 					module.h_val=module.h_val+1;				
 					h_val=module.h_val;
-					LCD_ShowNum(120,80,module.h_val,3,16);
+					LCD_ShowNum(120,100,module.h_val,3,16);
 					HAL_Delay(500);
 				}
 				
-        if(60<tp_dev.x&&tp_dev.x<120&&50<tp_dev.y&&tp_dev.y<90)
+        if(60<tp_dev.x&&tp_dev.x<120&&60<tp_dev.y&&tp_dev.y<110)
 				{				
 					module.h_val=module.h_val-1;					
 					h_val=module.h_val;
-					LCD_ShowNum(120,80,module.h_val,3,16);
+					LCD_ShowNum(120,100,module.h_val,3,16);
 					HAL_Delay(500);
 				}	
 				
-				if(150<tp_dev.x&&tp_dev.x<210&&100<tp_dev.y&&tp_dev.y<140)
+				if(150<tp_dev.x&&tp_dev.x<210&&120<tp_dev.y&&tp_dev.y<170)
 				{									
 					module.temp_val=module.temp_val+1;
 				  temp_val=module.temp_val;
-					LCD_ShowNum(120,130,module.temp_val,3,16);
+					LCD_ShowNum(120,150,module.temp_val,3,16);
 					HAL_Delay(500);
 				}
 				
-        if(60<tp_dev.x&&tp_dev.x<120&&100<tp_dev.y&&tp_dev.y<140)
+        if(60<tp_dev.x&&tp_dev.x<120&&120<tp_dev.y&&tp_dev.y<170)
 				{				
 					module.temp_val=module.temp_val-1;			
-					LCD_ShowNum(120,130,module.temp_val,3,16);
+					LCD_ShowNum(120,150,module.temp_val,3,16);
 					HAL_Delay(500);
 				}
 				
