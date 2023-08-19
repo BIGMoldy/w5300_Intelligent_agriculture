@@ -1,0 +1,13 @@
+stm32f407zet6_demo\udp.o: ..\Ethernet\APP\udp.c
+stm32f407zet6_demo\udp.o: D:\ARM\ARMCC\Bin\..\include\stdio.h
+stm32f407zet6_demo\udp.o: ..\Ethernet\APP\udp.h
+stm32f407zet6_demo\udp.o: ../Ethernet/W5300/socket.h
+stm32f407zet6_demo\udp.o: ../Ethernet/W5300/wizchip_conf.h
+stm32f407zet6_demo\udp.o: D:\ARM\ARMCC\Bin\..\include\stdint.h
+stm32f407zet6_demo\udp.o: ../Ethernet/W5300/W5300.h
+stm32f407zet6_demo\udp.o: ../Ethernet/W5300/wizchip_conf.h
+stm32f407zet6_demo\udp.o: ../Ethernet/W5300/w5300_conf.h
+stm32f407zet6_demo\udp.o: D:\ARM\ARMCC\Bin\..\include\string.h
+stm32f407zet6_demo\udp.o: ..\Ethernet\APP\tcp_client.h
+stm32f407zet6_demo\udp.o: ..\Ethernet\APP\mqttkit.h
+stm32f407zet6_demo\udp.o: D:\ARM\ARMCC\Bin\..\include\stdlib.h
