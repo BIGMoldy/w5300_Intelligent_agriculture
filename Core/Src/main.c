@@ -105,25 +105,25 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
   MX_FSMC_Init();
-  MX_TIM6_Init();
+  MX_TIM6_Init(); 
   MX_ADC1_Init();
   MX_ADC2_Init();
   /* USER CODE BEGIN 2 */
 	
-	LCD_Init();
+	LCD_Init();   //LCD init
 	
-	reset_w5300();        
+	reset_w5300();  //Reset W5300      
       
-	set_w5300_mac();      
-	set_w5300_netinfo();  
-	sysinit();            
-	while(DHT11_Init())
+	set_w5300_mac();   //Configure MAC   
+	set_w5300_netinfo();  //Configure IP GM SN
+	sysinit();           //Configure socket cache         
+	while(DHT11_Init())   //DHt11 init
 		printf("\r\n DHT11 Error!");
 
 
   while (1)
   {
-		Touch_Test();
+		Touch_Test(); //Screen display, screen touch control
 
   }
 	
